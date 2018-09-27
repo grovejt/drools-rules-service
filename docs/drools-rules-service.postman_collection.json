@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "1ccf0f8f-4334-4728-ada5-069c52c4e4ab",
+		"name": "drools-rules-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validate Empty Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\" : 0,\r\n\t\"name\" : \"\",\r\n\t\"email\" : \"\",\r\n\t\"phone\" : 0,\r\n\t\"address\" : {\r\n\t\t\"flatNo\" : \"\",\r\n\t\t\"street\" : \"\",\r\n\t\t\"city\" : \"\",\r\n\t\t\"state\" : \"\",\r\n\t\t\"zip\" : 0,\r\n\t\t\"country\" : \"\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9999/employee/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"employee",
+						"store"
+					]
+				},
+				"description": "Validate Empty Employee Test"
+			},
+			"response": []
+		},
+		{
+			"name": "Validate Good Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\" : 1,\r\n\t\"name\" : \"Soumitra Roy\",\r\n\t\"email\" : \"soumitra.sarkar@email.com\",\r\n\t\"phone\" : 1234567890,\r\n\t\"address\" : {\r\n\t\t\"flatNo\" : \"\",\r\n\t\t\"street\" : \"Street\",\r\n\t\t\"city\" : \"City\",\r\n\t\t\"state\" : \"State\",\r\n\t\t\"zip\" : 111111,\r\n\t\t\"country\" : \"India\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9999/employee/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"employee",
+						"store"
+					]
+				},
+				"description": "Validate Good Employee Test"
+			},
+			"response": []
+		},
+		{
+			"name": "Sales - Categorize Basketball",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\" : 0,\r\n\t\"name\" : \"\",\r\n\t\"email\" : \"\",\r\n\t\"phone\" : 0,\r\n\t\"address\" : {\r\n\t\t\"flatNo\" : \"\",\r\n\t\t\"street\" : \"\",\r\n\t\t\"city\" : \"\",\r\n\t\t\"state\" : \"\",\r\n\t\t\"zip\" : 0,\r\n\t\t\"country\" : \"\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9999/sales/categorizeItem?name=Basketball&cost=24.99&salePrice=19.99",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"sales",
+						"categorizeItem"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Basketball"
+						},
+						{
+							"key": "cost",
+							"value": "24.99"
+						},
+						{
+							"key": "salePrice",
+							"value": "19.99"
+						}
+					]
+				},
+				"description": "Validate Empty Employee Test"
+			},
+			"response": []
+		}
+	]
+}
