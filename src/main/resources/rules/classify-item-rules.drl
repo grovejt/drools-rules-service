@@ -1,0 +1,28 @@
+package com.grove.microserivces.drools.rules
+
+import com.grove.microservices.drools.domain.sales.Item;
+import com.grove.microservices.drools.domain.sales.Item.Category;
+
+// Items that cost less than $200 get their category set to LOW_RANGE:
+rule "Classify Item - Low Range"
+	when 
+		$i: Item (cost < 200)
+	then
+		$i.setCategory(Category.LOW_RANGE);
+end
+
+rule "Classify Item - Mid Range"
+    when
+        $i: Item( cost > 200 && cost < 500, category == Category.NA )
+    then
+        $i.setCategory(Item.Category.MID_RANGE);
+        update($i);
+end
+
+rule "Classify Item - High Range"
+    when
+        $i: Item( cost >= 500, category == Category.NA )
+    then
+        $i.setCategory(Item.Category.HIGH_RANGE);
+        update($i);
+end
